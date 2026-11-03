@@ -14,13 +14,13 @@
   "logo": {
     "src": "/images/logo.jpg",
     "alt": "شعار المنتدى الوطني للطلبة الجزائريين FNEA"
-  },
-  "theme": {
-    "primary": "#087A4B",
-    "primaryDark": "#045333",
-    "accent": "#D71920",
-    "surface": "#F4F8F5",
-    "ink": "#10231A"
+  },"theme": {
+  "primary": "#087A4B",
+  "primaryDark": "#045333",
+  "accent": "#D4AF37",
+  "surface": "#F4F8F5",
+  "ink": "#10231A"
+}
   },
   "hero": {
     "image": "/images/hero.webp",
