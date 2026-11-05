@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
-import Img from '../ui/Img';
-import Icon from '../ui/Icon';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
+import Img from '../UI/Img';
+import Icon from '../UI/Icon';
 import { useLang } from '../../i18n/LanguageContext';
 
 // كل عنصر يفتح القسم المطابق في دليل الطالب (/guide#id)
