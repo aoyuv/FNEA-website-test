@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, Share2, CalendarDays } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Img from '../components/ui/Img';
-import Button from '../components/ui/Button';
-import SampleBadge from '../components/ui/SampleBadge';
-import SocialIcon from '../components/ui/SocialIcon';
+import PageHeader from '../components/UI/PageHeader';
+import Img from '../components/UI/Img';
+import Button from '../components/UI/Button';
+import SampleBadge from '../components/UI/SampleBadge';
+import SocialIcon from '../components/UI/SocialIcon';
 import NewsCard from '../components/cards/NewsCard';
 import NotFound from './NotFound';
 import { useLang } from '../i18n/LanguageContext';
