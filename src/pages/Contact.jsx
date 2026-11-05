@@ -1,8 +1,8 @@
 import { MapPin, Clock, Send } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
-import Button from '../components/ui/Button';
-import SocialIcon from '../components/ui/SocialIcon';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
+import Button from '../components/UI/Button';
+import SocialIcon from '../components/UI/SocialIcon';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 import { cn } from '../lib/utils';
