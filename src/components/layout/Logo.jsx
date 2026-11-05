@@ -25,7 +25,7 @@ export default function Logo({ light = false, className }) {
   const [a, ...b] = short.split(' ');
   return (
     <span className={cn('flex items-center gap-2.5', className)} aria-label={logo?.alt || short}>
-      {logo?.src ? <img src={asset(logo.src)} alt={logo.alt || short} className="h-10 w-auto" /> : <LogoMark />}
+      {logo?.src ? <img src={asset(logo.src)} alt={logo.alt || short} className="h-10 max-w-[112px] object-contain object-center rounded-lg" /> : <LogoMark />}
       <span className="flex flex-col leading-none" dir="ltr">
         <span className={cn('font-display text-[1.05rem] font-extrabold tracking-wide', light ? 'text-white' : 'text-ink')}>{a}</span>
         <span className={cn('mt-1 text-[0.68rem] font-semibold tracking-[0.28em]', light ? 'text-accent' : 'text-primary')}>{b.join(' ')}</span>
