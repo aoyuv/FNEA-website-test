@@ -1,6 +1,6 @@
 import { Send } from 'lucide-react';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
 import { useLang } from '../../i18n/LanguageContext';
 
 export default function ConcernCTA() {
