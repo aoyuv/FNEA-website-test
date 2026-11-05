@@ -41,6 +41,7 @@ export default function SubmitConcern() {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | done | error
   const [mode, setMode] = useState(null);
+  const [errorDetail, setErrorDetail] = useState('');
   const fileRef = useRef(null);
   const topRef = useRef(null);
 
@@ -74,6 +75,7 @@ export default function SubmitConcern() {
       document.getElementById(`f-${first}`)?.focus();
       return;
     }
+    setErrorDetail('');
     setStatus('sending');
     try {
       const res = await submitConcern(forms, values, file);
@@ -82,6 +84,7 @@ export default function SubmitConcern() {
       topRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       console.error(err);
+      setErrorDetail(err?.message || '');
       setStatus('error');
     }
   };
@@ -145,7 +148,7 @@ export default function SubmitConcern() {
                 )}
               </Field>
 
-              {status === 'error' && <p role="alert" className="flex items-center gap-2 rounded-xl bg-red-50 p-4 text-sm text-red-700"><AlertCircle className="h-5 w-5 shrink-0" aria-hidden="true" />{t('form.errors.submit')}</p>}
+              {status === 'error' && <p role="alert" className="flex items-center gap-2 rounded-xl bg-red-50 p-4 text-sm text-red-700"><AlertCircle className="h-5 w-5 shrink-0" aria-hidden="true" />{t('form.errors.submit')}{errorDetail ? ` (${errorDetail})` : ''}</p>}
 
               <div className="flex flex-col gap-4 border-t border-ink/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
                 <p className="flex items-center gap-2 text-sm text-muted"><ShieldCheck className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{t('form.privacy')}</p>
