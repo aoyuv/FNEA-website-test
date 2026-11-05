@@ -1,15 +1,15 @@
-import Hero from '../components/sections/Hero';
-import QuickActions from '../components/sections/QuickActions';
-import AboutPreview from '../components/sections/AboutPreview';
-import Services from '../components/sections/Services';
-import ConcernCTA from '../components/sections/ConcernCTA';
-import ActivitiesPreview from '../components/sections/ActivitiesPreview';
-import NewsPreview from '../components/sections/NewsPreview';
-import NewStudents from '../components/sections/NewStudents';
-import TeamPreview from '../components/sections/TeamPreview';
-import GalleryPreview from '../components/sections/GalleryPreview';
-import FAQSection from '../components/sections/FAQSection';
-import ContactCTA from '../components/sections/ContactCTA';
+import Hero from '../components/section/Hero';
+import QuickActions from '../components/section/QuickActions';
+import AboutPreview from '../components/section/AboutPreview';
+import Services from '../components/section/Services';
+import ConcernCTA from '../components/section/ConcernCTA';
+import ActivitiesPreview from '../components/section/ActivitiesPreview';
+import NewsPreview from '../components/section/NewsPreview';
+import NewStudents from '../components/section/NewStudents';
+import TeamPreview from '../components/section/TeamPreview';
+import GalleryPreview from '../components/section/GalleryPreview';
+import FAQSection from '../components/section/FAQSection';
+import ContactCTA from '../components/section/ContactCTA';
 
 /** ترتيب أقسام الصفحة الرئيسية — يمكن إعادة ترتيبها أو حذف أي قسم هنا */
 export default function Home() {
