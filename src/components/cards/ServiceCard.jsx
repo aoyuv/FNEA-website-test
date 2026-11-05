@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import Icon from '../ui/Icon';
+import Icon from '../UI/Icon';
 import { useLang } from '../../i18n/LanguageContext';
 
 export default function ServiceCard({ service }) {
