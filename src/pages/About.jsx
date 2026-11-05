@@ -1,9 +1,9 @@
 import { HeartHandshake, Megaphone, Lightbulb, ShieldCheck, Users, GitBranch } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
-import Img from '../components/ui/Img';
-import Button from '../components/ui/Button';
-import ContactCTA from '../components/sections/ContactCTA';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
+import Img from '../components/UI/Img';
+import Button from '../components/UI/Button';
+import ContactCTA from '../components/section/ContactCTA';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 
