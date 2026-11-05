@@ -1,6 +1,6 @@
-import SectionHeading from '../ui/SectionHeading';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
+import SectionHeading from '../UI/SectionHeading';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
 import ActivityCard from '../cards/ActivityCard';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
