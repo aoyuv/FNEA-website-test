@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Info, Send } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
-import Button from '../components/ui/Button';
-import Icon from '../components/ui/Icon';
-import AverageCalculator from '../components/ui/AverageCalculator';
-import { AccordionItem } from '../components/ui/Accordion';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
+import Button from '../components/UI/Button';
+import Icon from '../components/UI/Icon';
+import AverageCalculator from '../components/UI/AverageCalculator';
+import { AccordionItem } from '../components/UI/Accordion';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 import { cn } from '../lib/utils';
