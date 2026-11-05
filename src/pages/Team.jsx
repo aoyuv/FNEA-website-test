@@ -1,5 +1,5 @@
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
 import MemberCard from '../components/cards/MemberCard';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
