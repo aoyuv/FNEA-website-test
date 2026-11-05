@@ -1,6 +1,6 @@
-import PageHeader from '../components/ui/PageHeader';
-import Services from '../components/sections/Services';
-import ConcernCTA from '../components/sections/ConcernCTA';
+import PageHeader from '../components/UI/PageHeader';
+import Services from '../components/section/Services';
+import ConcernCTA from '../components/section/ConcernCTA';
 import { useLang } from '../i18n/LanguageContext';
 
 export default function ServicesPage() {
