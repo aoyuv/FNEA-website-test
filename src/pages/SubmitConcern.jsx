@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { CheckCircle2, Paperclip, Send, Loader2, AlertCircle, Info, X, ShieldCheck } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
-import Button from '../components/ui/Button';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
+import Button from '../components/UI/Button';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 import { submitConcern } from '../services/submissionService';
