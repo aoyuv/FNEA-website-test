@@ -1,5 +1,5 @@
-import SectionHeading from '../ui/SectionHeading';
-import Reveal from '../ui/Reveal';
+import SectionHeading from '../UI/SectionHeading';
+import Reveal from '../UI/Reveal';
 import ServiceCard from '../cards/ServiceCard';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
