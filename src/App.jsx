@@ -25,7 +25,7 @@ import NotFound from './pages/NotFound';
  */
 export default function App() {
   const { data, error } = useContentState();
-  if (error) return <div className="grid min-h-screen place-items-center p-6 text-center"><p>تعذّر تحميل المحتوى. تحقّق من ملفات public/data/*.json</p></div>;
+  if (error) return <div className="grid min-h-screen place-items-center p-6 text-center"><p>تعذّر تحميل المحتوى. تحقّق من ملفات data/*.json أو مسارات تحميلها</p></div>;
   if (!data) return <div className="grid min-h-screen place-items-center bg-primary-dark" aria-busy="true"><LogoMark className="h-14 w-14 animate-pulse" /></div>;
   return (
     <HashRouter>
