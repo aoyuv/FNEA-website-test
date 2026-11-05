@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
-import Img from '../ui/Img';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
+import Img from '../UI/Img';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
 
