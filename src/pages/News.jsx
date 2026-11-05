@@ -1,6 +1,6 @@
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
-import EmptyState from '../components/ui/EmptyState';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
+import EmptyState from '../components/UI/EmptyState';
 import NewsCard from '../components/cards/NewsCard';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
