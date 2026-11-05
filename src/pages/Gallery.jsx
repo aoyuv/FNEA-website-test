@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Expand } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import FilterTabs from '../components/ui/FilterTabs';
-import Img from '../components/ui/Img';
-import Lightbox from '../components/ui/Lightbox';
-import EmptyState from '../components/ui/EmptyState';
+import PageHeader from '../components/UI/PageHeader';
+import FilterTabs from '../components/UI/FilterTabs';
+import Img from '../components/UI/Img';
+import Lightbox from '../components/UI/Lightbox';
+import EmptyState from '../components/UI/EmptyState';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 
