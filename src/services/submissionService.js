@@ -23,7 +23,16 @@ async function viaFormspree(cfg, values, file) {
   fd.append('_subject', `[FNEA] ${values.category} – ${values.subject}`);
   if (file) fd.append('attachment', file);
   const res = await fetch(cfg.endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
-  if (!res.ok) throw new Error(`Formspree error ${res.status}`);
+  if (!res.ok) {
+    let detail = '';
+    try {
+      const payload = await res.json();
+      detail = payload?.errors?.map((x) => x.message).filter(Boolean).join('؛ ') || payload?.error || '';
+    } catch { /* response is not JSON */ }
+    const error = new Error(detail || `Formspree HTTP ${res.status}`);
+    error.status = res.status;
+    throw error;
+  }
 }
 
 async function viaGoogleForms(cfg, values) {
