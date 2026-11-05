@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Building2, GraduationCap, Home as HomeIcon, Landmark, UserRound, Phone, Mail } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import FilterTabs from '../components/ui/FilterTabs';
-import Reveal from '../components/ui/Reveal';
-import EmptyState from '../components/ui/EmptyState';
-import SampleBadge from '../components/ui/SampleBadge';
-import SocialIcon from '../components/ui/SocialIcon';
-import Img from '../components/ui/Img';
+import PageHeader from '../components/UI/PageHeader';
+import FilterTabs from '../components/UI/FilterTabs';
+import Reveal from '../components/UI/Reveal';
+import EmptyState from '../components/UI/EmptyState';
+import SampleBadge from '../components/UI/SampleBadge';
+import SocialIcon from '../components/UI/SocialIcon';
+import Img from '../components/UI/Img';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 
