@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CalendarDays, MapPin, Share2, ArrowRight, ArrowLeft } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Img from '../components/ui/Img';
-import Button from '../components/ui/Button';
-import SampleBadge from '../components/ui/SampleBadge';
-import Lightbox from '../components/ui/Lightbox';
+import PageHeader from '../components/UI/PageHeader';
+import Img from '../components/UI/Img';
+import Button from '../components/UI/Button';
+import SampleBadge from '../components/UI/SampleBadge';
+import Lightbox from '../components/UI/Lightbox';
 import ActivityCard from '../components/cards/ActivityCard';
 import NotFound from './NotFound';
 import { useLang } from '../i18n/LanguageContext';
