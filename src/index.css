@@ -88,19 +88,19 @@ html.dark {
 .fnea-watermark {
   position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
   display:grid; place-items:center;
-  opacity:.055;
+  opacity:.035;
   transition:opacity .35s ease;
 }
 .fnea-watermark img {
-  width:min(72vw, 760px); max-height:78vh; object-fit:contain;
+  width:min(68vw, 700px); max-height:72vh; object-fit:contain;
   filter:url(#fnea-wave);
   transform:translate3d(0,0,0);
 }
-.dark .fnea-watermark { opacity:.075; }
+.dark .fnea-watermark { opacity:.05; }
 @media (max-width:640px) {
-  .fnea-watermark img { width:94vw; max-height:58vh; }
-  .fnea-watermark { opacity:.045; }
-  .dark .fnea-watermark { opacity:.065; }
+  .fnea-watermark img { width:88vw; max-height:54vh; }
+  .fnea-watermark { opacity:.03; }
+  .dark .fnea-watermark { opacity:.045; }
 }
 @media (prefers-reduced-motion:reduce) {
   .fnea-watermark img { filter:none; }
