@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Play, ExternalLink, X, Clock } from 'lucide-react';
-import PageHeader from '../components/ui/PageHeader';
-import Reveal from '../components/ui/Reveal';
-import Img from '../components/ui/Img';
-import SocialIcon from '../components/ui/SocialIcon';
-import SampleBadge from '../components/ui/SampleBadge';
+import PageHeader from '../components/UI/PageHeader';
+import Reveal from '../components/UI/Reveal';
+import Img from '../components/UI/Img';
+import SocialIcon from '../components/UI/SocialIcon';
+import SampleBadge from '../components/UI/SampleBadge';
 import { useLang } from '../i18n/LanguageContext';
 import { useContent } from '../context/ContentContext';
 
