@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Send, BookOpen, CalendarDays, Phone } from 'lucide-react';
-import Reveal from '../ui/Reveal';
+import Reveal from '../UI/Reveal';
 import { useLang } from '../../i18n/LanguageContext';
 import { cn } from '../../lib/utils';
 
