@@ -1,5 +1,5 @@
-import PageHeader from '../components/ui/PageHeader';
-import Button from '../components/ui/Button';
+import PageHeader from '../components/UI/PageHeader';
+import Button from '../components/UI/Button';
 import { useLang } from '../i18n/LanguageContext';
 
 export default function NotFound({ title }) {
