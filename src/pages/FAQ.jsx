@@ -1,6 +1,6 @@
-import PageHeader from '../components/ui/PageHeader';
-import FAQSection from '../components/sections/FAQSection';
-import ContactCTA from '../components/sections/ContactCTA';
+import PageHeader from '../components/UI/PageHeader';
+import FAQSection from '../components/section/FAQSection';
+import ContactCTA from '../components/section/ContactCTA';
 import { useLang } from '../i18n/LanguageContext';
 
 export default function FAQ() {
