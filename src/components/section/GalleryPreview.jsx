@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Expand } from 'lucide-react';
-import SectionHeading from '../ui/SectionHeading';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
-import Img from '../ui/Img';
-import Lightbox from '../ui/Lightbox';
+import SectionHeading from '../UI/SectionHeading';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
+import Img from '../UI/Img';
+import Lightbox from '../UI/Lightbox';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
 import { cn } from '../../lib/utils';
