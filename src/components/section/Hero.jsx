@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight, MessageCircle } from 'lucide-react';
-import Button from '../ui/Button';
+import Button from '../UI/Button';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
 import { asset } from '../../lib/utils';
