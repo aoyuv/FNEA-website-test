@@ -1,7 +1,7 @@
 import { MessageCircle, Send } from 'lucide-react';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
-import SocialIcon from '../ui/SocialIcon';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
+import SocialIcon from '../UI/SocialIcon';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
 import { SOCIAL_KEYS } from '../../lib/navigation';
