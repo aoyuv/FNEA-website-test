@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CalendarDays, MapPin } from 'lucide-react';
-import Img from '../ui/Img';
-import SampleBadge from '../ui/SampleBadge';
+import Img from '../UI/Img';
+import SampleBadge from '../UI/SampleBadge';
 import { useLang } from '../../i18n/LanguageContext';
 import { formatDate } from '../../lib/utils';
 
