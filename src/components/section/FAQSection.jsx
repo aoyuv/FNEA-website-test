@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SectionHeading from '../ui/SectionHeading';
-import Reveal from '../ui/Reveal';
-import Button from '../ui/Button';
-import { AccordionItem } from '../ui/Accordion';
+import SectionHeading from '../UI/SectionHeading';
+import Reveal from '../UI/Reveal';
+import Button from '../UI/Button';
+import { AccordionItem } from '../UI/Accordion';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
 
