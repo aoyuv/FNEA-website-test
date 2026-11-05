@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Send, Sun, Moon } from 'lucide-react';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
-import Button from '../ui/Button';
+import Button from '../UI/Button';
 import { MAIN_NAV, MORE_NAV } from '../../lib/navigation';
 import { useLang } from '../../i18n/LanguageContext';
 import { cn } from '../../lib/utils';
