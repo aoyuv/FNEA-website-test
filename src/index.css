@@ -81,3 +81,27 @@ html.dark {
 .dark .lead { color: rgb(var(--c-muted)); }
 .dark ::selection { background: rgb(101 197 165 / .3); color: #fff; }
 @media (prefers-reduced-motion: no-preference) { .card img { will-change: transform; } }
+
+
+/* Original FNEA logo watermark with an endless, gentle wave distortion */
+.fnea-wave-defs { position:absolute; width:0; height:0; overflow:hidden; }
+.fnea-watermark {
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  display:grid; place-items:center;
+  opacity:.055;
+  transition:opacity .35s ease;
+}
+.fnea-watermark img {
+  width:min(72vw, 760px); max-height:78vh; object-fit:contain;
+  filter:url(#fnea-wave);
+  transform:translate3d(0,0,0);
+}
+.dark .fnea-watermark { opacity:.075; }
+@media (max-width:640px) {
+  .fnea-watermark img { width:94vw; max-height:58vh; }
+  .fnea-watermark { opacity:.045; }
+  .dark .fnea-watermark { opacity:.065; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .fnea-watermark img { filter:none; }
+}
