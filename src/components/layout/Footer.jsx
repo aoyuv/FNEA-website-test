@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import SocialIcon from '../ui/SocialIcon';
+import SocialIcon from '../UI/SocialIcon';
 import { FOOTER_NAV, MORE_NAV, SOCIAL_KEYS } from '../../lib/navigation';
 import { useLang } from '../../i18n/LanguageContext';
 import { useContent } from '../../context/ContentContext';
