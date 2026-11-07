@@ -71,7 +71,8 @@ create policy "staff read concerns" on public.concerns for select to authenticat
 create policy "staff update concerns" on public.concerns for update to authenticated using (public.current_fnea_role() in ('super_admin','admin','concerns_manager')) with check (public.current_fnea_role() in ('super_admin','admin','concerns_manager'));
 
 -- Storage bucket for public editorial images; private bucket for concern attachments
-insert into storage.buckets(id,name,public) values ('fnea-media','fnea-media',true),('concern-files','concern-files',false) on conflict(id) do nothing;
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values ('fnea-media','fnea-media',true,10485760,array['image/jpeg','image/png','image/webp']),('concern-files','concern-files',false,5242880,array['image/jpeg','image/png','image/webp','application/pdf']) on conflict(id) do nothing;
+update storage.buckets set file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp','application/pdf'] where id='concern-files';
 create policy "public view FNEA media" on storage.objects for select to anon,authenticated using(bucket_id='fnea-media');
 create policy "staff upload FNEA media" on storage.objects for insert to authenticated with check(bucket_id='fnea-media' and public.current_fnea_role() in ('super_admin','admin','editor'));
 create policy "staff update FNEA media" on storage.objects for update to authenticated using(bucket_id='fnea-media' and public.current_fnea_role() in ('super_admin','admin','editor'));
