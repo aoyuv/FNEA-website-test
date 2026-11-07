@@ -73,3 +73,9 @@ create policy "staff upload FNEA media" on storage.objects for insert to authent
 create policy "staff update FNEA media" on storage.objects for update to authenticated using(bucket_id='fnea-media' and exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor')));
 create policy "staff access concern files" on storage.objects for select to authenticated using(bucket_id='concern-files' and exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager')));
 create policy "public upload concern files" on storage.objects for insert to anon,authenticated with check(bucket_id='concern-files');
+
+-- Automatically create a least-privilege profile for every new auth user.
+create or replace function public.handle_new_user_profile() returns trigger language plpgsql security definer set search_path=public as $$
+begin insert into public.profiles(id,full_name,role) values(new.id,coalesce(new.raw_user_meta_data->>'full_name',''),'editor'); return new; end; $$;
+drop trigger if exists on_auth_user_created_profile on auth.users;
+create trigger on_auth_user_created_profile after insert on auth.users for each row execute procedure public.handle_new_user_profile();
