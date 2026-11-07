@@ -60,22 +60,22 @@ alter table public.concerns enable row level security;
 create policy "public published news" on public.news for select to anon,authenticated using (published=true);
 create policy "staff manage news" on public.news for all to authenticated using (public.current_fnea_role() in ('super_admin','admin','editor')) with check (public.current_fnea_role() in ('super_admin','admin','editor'));
 create policy "public published activities" on public.activities for select to anon,authenticated using (published=true);
-create policy "staff manage activities" on public.activities for all to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor')));
+create policy "staff manage activities" on public.activities for all to authenticated using (public.current_fnea_role() in ('super_admin','admin','editor')) with check (public.current_fnea_role() in ('super_admin','admin','editor'));
 create policy "public active members" on public.members for select to anon,authenticated using (active=true);
-create policy "admins manage members" on public.members for all to authenticated using (public.current_fnea_role() in ('super_admin','admin')) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin')));
+create policy "admins manage members" on public.members for all to authenticated using (public.current_fnea_role() in ('super_admin','admin')) with check (public.current_fnea_role() in ('super_admin','admin'));
 create policy "public active branches" on public.branches for select to anon,authenticated using (active=true);
-create policy "admins manage branches" on public.branches for all to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin')));
+create policy "admins manage branches" on public.branches for all to authenticated using (public.current_fnea_role() in ('super_admin','admin')) with check (public.current_fnea_role() in ('super_admin','admin'));
 -- Submission is public insert only. Concern details are staff-only; no anon select/update/delete.
 create policy "public submit concern" on public.concerns for insert to anon,authenticated with check (status='new' and admin_note='');
 create policy "staff read concerns" on public.concerns for select to authenticated using (public.current_fnea_role() in ('super_admin','admin','concerns_manager'));
-create policy "staff update concerns" on public.concerns for update to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager')));
+create policy "staff update concerns" on public.concerns for update to authenticated using (public.current_fnea_role() in ('super_admin','admin','concerns_manager')) with check (public.current_fnea_role() in ('super_admin','admin','concerns_manager'));
 
 -- Storage bucket for public editorial images; private bucket for concern attachments
 insert into storage.buckets(id,name,public) values ('fnea-media','fnea-media',true),('concern-files','concern-files',false) on conflict(id) do nothing;
 create policy "public view FNEA media" on storage.objects for select to anon,authenticated using(bucket_id='fnea-media');
-create policy "staff upload FNEA media" on storage.objects for insert to authenticated with check(bucket_id='fnea-media' and exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor')));
-create policy "staff update FNEA media" on storage.objects for update to authenticated using(bucket_id='fnea-media' and exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor')));
-create policy "staff access concern files" on storage.objects for select to authenticated using(bucket_id='concern-files' and exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager')));
+create policy "staff upload FNEA media" on storage.objects for insert to authenticated with check(bucket_id='fnea-media' and public.current_fnea_role() in ('super_admin','admin','editor'));
+create policy "staff update FNEA media" on storage.objects for update to authenticated using(bucket_id='fnea-media' and public.current_fnea_role() in ('super_admin','admin','editor'));
+create policy "staff access concern files" on storage.objects for select to authenticated using(bucket_id='concern-files' and public.current_fnea_role() in ('super_admin','admin','concerns_manager'));
 create policy "public upload concern files" on storage.objects for insert to anon,authenticated with check(bucket_id='concern-files');
 
 -- Automatically create a least-privilege profile for every new auth user.
