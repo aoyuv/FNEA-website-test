@@ -2,41 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { LogoMark } from './components/layout/Logo';
 import { useContentState } from './context/ContentContext';
-import Home from './pages/Home';
-import About from './pages/About';
-import ServicesPage from './pages/ServicesPage';
-import Activities from './pages/Activities';
-import ActivityDetail from './pages/ActivityDetail';
-import News from './pages/News';
-import NewsDetail from './pages/NewsDetail';
-import Guide from './pages/Guide';
-import Team from './pages/Team';
-import Branches from './pages/Branches';
-import Gallery from './pages/Gallery';
-import Videos from './pages/Videos';
-import FAQ from './pages/FAQ';
-import Contact from './pages/Contact';
-import SubmitConcern from './pages/SubmitConcern';
-import Admin from './pages/Admin';
-import NotFound from './pages/NotFound';
-
-export default function App() {
-  const { data, error } = useContentState();
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path="admin" element={<Admin />} />
-        <Route element={<Layout />}>
-          {error ? <Route index element={<div className="grid min-h-screen place-items-center p-6 text-center"><p>تعذّر تحميل المحتوى. تحقّق من ملفات data/*.json أو اتصال قاعدة البيانات.</p></div>} /> : !data ? <Route index element={<div className="grid min-h-screen place-items-center bg-primary-dark" aria-busy="true"><LogoMark className="h-14 w-14 animate-pulse" /></div>} /> : <>
-            <Route index element={<Home />} /><Route path="about" element={<About />} /><Route path="services" element={<ServicesPage />} />
-            <Route path="activities" element={<Activities />} /><Route path="activities/:id" element={<ActivityDetail />} />
-            <Route path="news" element={<News />} /><Route path="news/:id" element={<NewsDetail />} />
-            <Route path="guide" element={<Guide />} /><Route path="team" element={<Team />} /><Route path="branches" element={<Branches />} />
-            <Route path="gallery" element={<Gallery />} /><Route path="videos" element={<Videos />} /><Route path="faq" element={<FAQ />} />
-            <Route path="contact" element={<Contact />} /><Route path="submit" element={<SubmitConcern />} /><Route path="*" element={<NotFound />} />
-          </>}
-        </Route>
-      </Routes>
-    </HashRouter>
-  );
-}
+import Home from './pages/Home';import About from './pages/About';import ServicesPage from './pages/ServicesPage';import Activities from './pages/Activities';import ActivityDetail from './pages/ActivityDetail';import News from './pages/News';import NewsDetail from './pages/NewsDetail';import Guide from './pages/Guide';import Team from './pages/Team';import Branches from './pages/Branches';import Gallery from './pages/Gallery';import Videos from './pages/Videos';import FAQ from './pages/FAQ';import Contact from './pages/Contact';import SubmitConcern from './pages/SubmitConcern';import Admin from './pages/Admin';import NotFound from './pages/NotFound';
+function Loading(){return <div className="grid min-h-screen place-items-center bg-primary-dark" aria-busy="true"><LogoMark className="h-14 w-14 animate-pulse"/></div>}
+function ContentError(){return <div className="grid min-h-screen place-items-center p-6 text-center"><p>تعذّر تحميل المحتوى. تحقّق من ملفات data/*.json أو اتصال قاعدة البيانات.</p></div>}
+export default function App(){const{data,error}=useContentState();return <HashRouter><Routes><Route path="admin" element={<Admin/>}/><Route element={error?<ContentError/>:!data?<Loading/>:<Layout/>}><Route index element={<Home/>}/><Route path="about" element={<About/>}/><Route path="services" element={<ServicesPage/>}/><Route path="activities" element={<Activities/>}/><Route path="activities/:id" element={<ActivityDetail/>}/><Route path="news" element={<News/>}/><Route path="news/:id" element={<NewsDetail/>}/><Route path="guide" element={<Guide/>}/><Route path="team" element={<Team/>}/><Route path="branches" element={<Branches/>}/><Route path="gallery" element={<Gallery/>}/><Route path="videos" element={<Videos/>}/><Route path="faq" element={<FAQ/>}/><Route path="contact" element={<Contact/>}/><Route path="submit" element={<SubmitConcern/>}/><Route path="*" element={<NotFound/>}/></Route></Routes></HashRouter>}
