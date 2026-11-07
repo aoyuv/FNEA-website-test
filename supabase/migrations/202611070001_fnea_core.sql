@@ -8,9 +8,13 @@ create table if not exists public.profiles (
   created_at timestamptz not null default now()
 );
 alter table public.profiles enable row level security;
+-- SECURITY DEFINER helper avoids recursive profiles RLS checks inside policies.
+create or replace function public.current_fnea_role() returns text language sql stable security definer set search_path=public as $ select role from public.profiles where id=auth.uid() $;
+revoke all on function public.current_fnea_role() from public;
+grant execute on function public.current_fnea_role() to anon,authenticated;
 create policy "profile self read" on public.profiles for select to authenticated using (id = auth.uid());
 create policy "admins read profiles" on public.profiles for select to authenticated using (
-  exists(select 1 from public.profiles p where p.id=auth.uid() and p.role in ('super_admin','admin'))
+  public.current_fnea_role() in ('super_admin','admin')
 );
 
 create table if not exists public.news (
@@ -54,16 +58,16 @@ alter table public.members enable row level security;
 alter table public.branches enable row level security;
 alter table public.concerns enable row level security;
 create policy "public published news" on public.news for select to anon,authenticated using (published=true);
-create policy "staff manage news" on public.news for all to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor')));
+create policy "staff manage news" on public.news for all to authenticated using (public.current_fnea_role() in ('super_admin','admin','editor')) with check (public.current_fnea_role() in ('super_admin','admin','editor'));
 create policy "public published activities" on public.activities for select to anon,authenticated using (published=true);
 create policy "staff manage activities" on public.activities for all to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','editor')));
 create policy "public active members" on public.members for select to anon,authenticated using (active=true);
-create policy "admins manage members" on public.members for all to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin')));
+create policy "admins manage members" on public.members for all to authenticated using (public.current_fnea_role() in ('super_admin','admin')) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin')));
 create policy "public active branches" on public.branches for select to anon,authenticated using (active=true);
 create policy "admins manage branches" on public.branches for all to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin')));
 -- Submission is public insert only. Concern details are staff-only; no anon select/update/delete.
 create policy "public submit concern" on public.concerns for insert to anon,authenticated with check (status='new' and admin_note='');
-create policy "staff read concerns" on public.concerns for select to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager')));
+create policy "staff read concerns" on public.concerns for select to authenticated using (public.current_fnea_role() in ('super_admin','admin','concerns_manager'));
 create policy "staff update concerns" on public.concerns for update to authenticated using (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager'))) with check (exists(select 1 from profiles p where p.id=auth.uid() and p.role in ('super_admin','admin','concerns_manager')));
 
 -- Storage bucket for public editorial images; private bucket for concern attachments
